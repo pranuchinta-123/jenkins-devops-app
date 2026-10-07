@@ -33,4 +33,18 @@ pipeline {
             }
         }
     }
+
+    post {
+        success {
+            mail to: 'pranuchinta@gmail.com',
+                 subject: 'Jenkins Build Successful',
+                 body: 'The jenkins-devops-pipeline build completed successfully.'
+        }
+
+        failure {
+            mail to: 'pranuchinta@gmail.com',
+                 subject: 'Jenkins Build Failed',
+                 body: 'The jenkins-devops-pipeline build has failed. Please check Jenkins.'
+        }
+    }
 }
